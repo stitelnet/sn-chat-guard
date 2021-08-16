@@ -8,11 +8,11 @@ class SnPreKeyBundle(
     registrationId: Int,
     deviceId: Int,
     preKeyId: Int,
-    preKeyPublic: SnECPublicKey?,
+    preKeyPublic: ECPublicKey?,
     signedPreKeyId: Int,
-    signedPreKeyPublic: SnECPublicKey?,
+    signedPreKeyPublic: ECPublicKey?,
     signedPreKeySignature: ByteArray?,
-    identityKey: SnIdentityKey?
+    identityKey: IdentityKey?
 ) : PreKeyBundle(
     registrationId,
     deviceId,
@@ -23,35 +23,5 @@ class SnPreKeyBundle(
     signedPreKeySignature,
     identityKey
 ) {
-    override fun getDeviceId(): Int {
-        return super.getDeviceId()
-    }
 
-    override fun getPreKeyId(): Int {
-        return super.getPreKeyId()
-    }
-
-    override fun getPreKey(): SnECPublicKey {
-        return super.getPreKey() as SnECPublicKey
-    }
-
-    override fun getSignedPreKeyId(): Int {
-        return super.getSignedPreKeyId()
-    }
-
-    override fun getSignedPreKey(): SnECPublicKey {
-        return super.getSignedPreKey() as SnECPublicKey
-    }
-
-    override fun getSignedPreKeySignature(): ByteArray {
-        return super.getSignedPreKeySignature()
-    }
-
-    override fun getIdentityKey(): SnIdentityKey {
-        return super.getIdentityKey() as SnIdentityKey
-    }
-
-    override fun getRegistrationId(): Int {
-        return super.getRegistrationId()
-    }
 }

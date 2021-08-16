@@ -15,23 +15,5 @@ class SnSignedPreKeyRecord: SignedPreKeyRecord {
     @Throws(IOException::class)
     constructor(serialized: ByteArray?) : super(serialized)
 
-    override fun getId(): Int {
-        return super.getId()
-    }
 
-    override fun getTimestamp(): Long {
-        return super.getTimestamp()
-    }
-
-    override fun getKeyPair(): SnECKeyPair {
-        return super.getKeyPair() as SnECKeyPair
-    }
-
-    override fun getSignature(): ByteArray {
-        return super.getSignature()
-    }
-
-    override fun serialize(): ByteArray {
-        return super.serialize()
-    }
 }

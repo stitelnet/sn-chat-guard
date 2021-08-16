@@ -15,22 +15,9 @@ class SnSessionBuilder: SessionBuilder {
         remoteAddress: SignalProtocolAddress?
     ) : super(sessionStore, preKeyStore, signedPreKeyStore, identityKeyStore, remoteAddress)
 
-    constructor(store: SnSignalProtocolStore?, remoteAddress: SnSignalProtocolAddress?) : super(
+    constructor(store: SignalProtocolStore?, remoteAddress: SignalProtocolAddress?) : super(
         store,
         remoteAddress
     )
-
-    @Throws(SnInvalidKeyException::class, SnUntrustedIdentityException::class)
-    fun process(preKeyBundle: SnPreKeyBundle){
-        try {
-            super.process(preKeyBundle)
-        }
-        catch (i: InvalidKeyException){
-            throw i
-        }
-        catch (u: UntrustedIdentityException){
-            throw u
-        }
-    }
 
 }

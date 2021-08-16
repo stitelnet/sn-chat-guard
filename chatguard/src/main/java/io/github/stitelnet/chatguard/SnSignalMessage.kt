@@ -27,35 +27,5 @@ class SnSignalMessage: SignalMessage, SnCiphertextMessage {
         receiverIdentityKey
     )
 
-    override fun serialize(): ByteArray {
-        return super.serialize()
-    }
 
-    override fun getType(): Int {
-        return super.getType()
-    }
-
-    override fun getSenderRatchetKey(): ECPublicKey {
-        return super.getSenderRatchetKey()
-    }
-
-    override fun getMessageVersion(): Int {
-        return super.getMessageVersion()
-    }
-
-    override fun getCounter(): Int {
-        return super.getCounter()
-    }
-
-    override fun getBody(): ByteArray {
-        return super.getBody()
-    }
-
-    override fun verifyMac(
-        senderIdentityKey: IdentityKey?,
-        receiverIdentityKey: IdentityKey?,
-        macKey: SecretKeySpec?
-    ) {
-        super.verifyMac(senderIdentityKey, receiverIdentityKey, macKey)
-    }
 }

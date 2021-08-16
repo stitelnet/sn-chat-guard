@@ -2,7 +2,7 @@ package io.github.stitelnet.chatguard
 
 import org.whispersystems.libsignal.InvalidKeyException
 
-class SnInvalidKeyException: Exception {
+class SnInvalidKeyException: InvalidKeyException {
 
     constructor() : super()
     constructor(detailMessage: String?) : super(detailMessage)
@@ -10,6 +10,4 @@ class SnInvalidKeyException: Exception {
     constructor(detailMessage: String?, throwable: Throwable?) : super(detailMessage, throwable)
 
 
-    override val message: String?
-        get() = super.message
 }

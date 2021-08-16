@@ -5,19 +5,22 @@ import org.whispersystems.libsignal.util.KeyHelper
 
 object SnKeyHelper  {
 
-    @Throws(SnInvalidKeyException::class)
+    @Throws(InvalidKeyException::class)
     fun generateSignedPreKey(identityKeyPair: SnIdentityKeyPair, signedPreKeyId: Int): SnSignedPreKeyRecord{
-        try {
-            return KeyHelper.generateSignedPreKey(identityKeyPair, signedPreKeyId) as SnSignedPreKeyRecord
-        }
-        catch (e: InvalidKeyException){
-            throw e
-        }
+
+        val signedPreKeyRecord =  KeyHelper.generateSignedPreKey(identityKeyPair, signedPreKeyId)
+        return SnSignedPreKeyRecord(signedPreKeyRecord.serialize())
+
     }
 
-    @Suppress("UNCHECKED_CAST")
+
     fun generatePreKeys(start: Int, count: Int): List<SnPreKeyRecord>{
-        return KeyHelper.generatePreKeys(start, count) as List<SnPreKeyRecord>
+        val list = KeyHelper.generatePreKeys(start, count)
+        val snList = ArrayList<SnPreKeyRecord>()
+        list.forEach {
+            snList.add(SnPreKeyRecord(it.serialize()))
+        }
+        return snList
     }
 
     fun generateRegistrationId(extendedRange: Boolean): Int{
