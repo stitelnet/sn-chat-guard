@@ -53,9 +53,9 @@ object SnHelper {
     }
 
     @Throws(InvalidKeyException::class)
-    fun decodePoint(preKeyPublicElement: String): SnECPublicKey{
+    fun decodePoint(preKeyPublicElement: String): SnKey{
         val dp = Curve.decodePoint(Base64.decode(preKeyPublicElement, Base64.DEFAULT), 0)
-        return SnDjbECPublicKey((dp as DjbECPublicKey).publicKey)
+        return SnKey(dp)
     }
 
 }
